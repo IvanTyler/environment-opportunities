@@ -1,0 +1,74 @@
+.banner {
+  margin-top: 52px;
+
+  &__container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "content image"
+      "buttons image"
+      "cards   image";
+    background-color: var(--color-bg-card);
+    border-radius: 16px;
+    padding-top: clamp(16px, 2vw, 30px);
+    padding-bottom: clamp(16px, 2vw, 30px);
+
+    >.process-rules {
+      grid-area: cards;
+      grid-column: 1 / span 2;
+    }
+  }
+
+  &__content {
+    position: relative;
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 710px;
+  }
+
+  &__image {
+    grid-area: image;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    transform: translateY(clamp(16px, 2vw, 30px));
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+  }
+
+  &__title {
+    font-size: clamp(32px, calc(2.62vw + 21.7px), 72px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--color-text-dark);
+    margin-bottom: 16px;
+  }
+
+  &__subtitle {
+    font-size: clamp(16px, calc(0.26vw + 14.98px), 20px);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--color-text-dark);
+    max-width: 560px;
+  }
+
+  &__buttons {
+    position: relative;
+    z-index: 1;
+    grid-area: buttons;
+    display: flex;
+    align-self: start;
+    gap: 16px;
+    margin-top: clamp(32px, 2vw, 50px);
+  }
+}

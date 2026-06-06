@@ -1,0 +1,67 @@
+@use './assets/fonts/fonts' as *;
+
+// ==========================================================================
+// SCSS Variables (только для @media — туда CSS-vars не работают)
+// ==========================================================================
+
+$bp-mobile:  393px;
+$bp-tablet:  768px;
+$bp-desktop: 1280px;
+$bp-wide:    1920px;
+
+$font-main: 'Century Gothic', Arial, sans-serif;
+
+// ==========================================================================
+// CSS Variables (цвета, переходы — доступны в JS и компонентах)
+// ==========================================================================
+
+:root {
+  // Основные цвета
+  --color-primary:          #C7151E;
+  --color-primary-hover:    #A8111A;
+  --color-primary-disabled: rgba(199, 21, 30, 0.3);
+
+  // Фоны
+  --color-bg-page:          #EFF2F7;
+  --color-bg-card:          #FFFFFF;
+  --color-bg-tab:           #F7F9FF;
+
+  // Текст
+  --color-text-dark:        #1C1C1C;
+  --color-text-disabled:    rgba(28, 28, 28, 0.3);
+  --color-text-white:       #FFFFFF;
+  --color-text-white-disabled: rgba(255, 255, 255, 0.3);
+
+  // Бордеры
+  --color-border-tab:       #9FB1D0;
+  --color-border-tab-hover: #C3D2EA;
+  --color-border-card:      #C1C9D4;
+
+  // Тени
+  --shadow-tab:             0px 4px 2px rgba(44, 44, 122, 0.08);
+
+  // Переходы
+  --transition-speed:       0.25s ease;
+}
+
+// ==========================================================================
+// Global
+// ==========================================================================
+
+body {
+  font-family: $font-main;
+  color: var(--color-text-dark);
+  background: var(--color-bg-page);
+}
+
+.main {
+  padding-left: clamp(16px, calc(5.5vw - 5.62px), 100px);
+  padding-right: clamp(16px, calc(5.5vw - 5.62px), 100px);
+}
+
+.container {
+  max-width: 1720px;
+  padding-left: clamp(16px, calc(5.5vw - 5.62px), 30px);
+  padding-right: clamp(16px, calc(5.5vw - 5.62px), 30px);
+  margin: 0 auto;
+}

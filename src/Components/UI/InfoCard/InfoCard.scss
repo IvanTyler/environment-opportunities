@@ -1,0 +1,32 @@
+.info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-card);
+  border-radius: 12px;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    flex-shrink: 0;
+
+    img {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &__text {
+    font-size: clamp(14px, calc(0.13vw + 13.49px), 16px);
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--color-text-dark);
+  }
+}

@@ -1,0 +1,8 @@
+.process-rules {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+  margin-top: 47px;
+}
