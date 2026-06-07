@@ -45,6 +45,11 @@
 
   &--disabled {
 
+    &:hover {
+      .assessment-card__image img {
+        transform: scale(1);
+      }
+    }
     .assessment-card__title,
     .assessment-card__text {
       color: var(--color-text-disabled);
