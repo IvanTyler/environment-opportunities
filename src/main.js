@@ -14,7 +14,7 @@ function initApp() {
   const main = document.querySelector('.main');
 
   main.append(Banner());
-  // main.append(NavTabs());
+  main.append(NavTabs());
   // main.append(AssessmentCards());
   // main.append(Webinar());
 }

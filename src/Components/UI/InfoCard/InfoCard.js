@@ -11,7 +11,7 @@ export function InfoCard({ text = '' } = {}) {
 
   el.innerHTML = `
     <div class="info-card__icon">
-      <img src="${iconSrc}" alt="" aria-hidden="true" />
+      <img src="${iconSrc}" alt=${text} aria-hidden="true" />
     </div>
     <p class="info-card__text">${text}</p>
   `;

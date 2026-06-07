@@ -4,62 +4,157 @@
   &__container {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto 1fr auto;
     grid-template-areas:
-      "content image"
-      "buttons image"
-      "cards   image";
-    background-color: var(--color-bg-card);
-    border-radius: 16px;
+      'content'
+      'rules';
     padding-top: clamp(16px, 2vw, 30px);
     padding-bottom: clamp(16px, 2vw, 30px);
+    background-color: var(--color-bg-card);
+    border-radius: 16px;
+
+    @media (max-width: 1270px) {
+      background-color: transparent;
+      padding: 0;
+    }
+
+    @media (max-width: 580px) {
+      display: block;
+      padding-top: clamp(16px, 2vw, 30px);
+      padding-bottom: clamp(16px, 2vw, 30px);
+      background-color: var(--color-bg-card);
+    }
 
     >.process-rules {
-      grid-area: cards;
-      grid-column: 1 / span 2;
+      grid-area: rules;
+      position: absolute;
+      bottom: 0;
+
+      @media (max-width: 1270px) {
+        position: static;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 16px;
+      }
+
+      @media (max-width: 580px) {
+        grid-template-columns: 1fr;
+        padding: 0 clamp(16px, 2vw, 30px);
+        margin-top: 0;
+      }
     }
   }
 
   &__content {
-    position: relative;
     grid-area: content;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    max-width: 710px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "title image"
+      "body image";
+    background-color: var(--color-bg-card);
+    border-radius: 16px;
+    position: relative;
+
+    @media (max-width: 1270px) {
+      padding: clamp(16px, 2vw, 30px);
+    }
+
+    @media (max-width: 580px) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "image"
+        "title"
+        "body";
+    }
+  }
+
+  &__body {
+    grid-area: body;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "subtitle"
+      "buttons";
+    gap: 50px;
+
+    @media (max-width: 1350px) {
+      gap: 24px;
+    }
+
+    @media (max-width: 1270px) {
+      position: relative;
+      z-index: 1;
+      grid-column: 1 / span 2;
+      align-self: end;
+    }
+
   }
 
   &__image {
     grid-area: image;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    width: 100%;
-    height: 100%;
     transform: translateY(clamp(16px, 2vw, 30px));
+
+    @media (max-width: 760px) {
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      right: -20px;
+    }
+
+    @media (max-width: 580px) {
+      position: static;
+      transform: none;
+      width: 100%;
+
+      picture {
+        width: 100%;
+      }
+    }
 
     img {
       width: 100%;
       height: 100%;
-      object-fit: fill;
+      object-fit: contain;
+      object-position: center bottom;
+
+      @media (max-width: 720px) {
+        border-radius: 0 0 16px 0;
+      }
     }
   }
 
   &__title {
-    font-size: clamp(32px, calc(2.62vw + 21.7px), 72px);
+    grid-area: title;
+    font-size: clamp(24px, 4vw, 72px);
     font-weight: 700;
     line-height: 1.1;
     color: var(--color-text-dark);
     margin-bottom: 16px;
+
+    @media (max-width: 580px) {
+      margin-top: 16px;
+    }
   }
 
   &__subtitle {
-    font-size: clamp(16px, calc(0.26vw + 14.98px), 20px);
+    grid-area: subtitle;
+    font-size: clamp(16px, 2.5vw, 20px);
     font-weight: 400;
     line-height: 1.25;
     color: var(--color-text-dark);
-    max-width: 560px;
+    max-width: 450px;
+
+    @media (max-width: 1030px) {
+      max-width: 390px;
+      font-size: 18px;
+    }
+
+    @media (max-width: 910px) {
+      max-width: 300px;
+      font-size: 14px;
+    }
   }
 
   &__buttons {
@@ -69,6 +164,9 @@
     display: flex;
     align-self: start;
     gap: 16px;
-    margin-top: clamp(32px, 2vw, 50px);
+
+    @media (max-width: 580px) {
+      flex-direction: column;
+    }
   }
 }

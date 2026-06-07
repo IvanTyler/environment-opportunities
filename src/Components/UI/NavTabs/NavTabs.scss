@@ -4,11 +4,26 @@
   &__container {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: clamp(16px, 2vw, 32px);
+    padding-left: 0;
+    padding-right: 0;
+    overflow: auto;
+    padding-bottom: 10px;
   }
 
   &__item {
     flex: 1;
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      width: clamp(300px, 27vw, 517px);
+      flex: none;
+
+      @media (max-width: 1270px) {
+        width: fit-content;
+        flex: 1;
+      }
+    }
     display: inline-flex;
     align-items: center;
     justify-content: center;
