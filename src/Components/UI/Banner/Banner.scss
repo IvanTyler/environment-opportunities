@@ -1,5 +1,4 @@
 .banner {
-  margin-top: 52px;
 
   &__container {
     position: relative;
@@ -19,7 +18,6 @@
 
     @media (max-width: 580px) {
       display: block;
-      padding-top: clamp(16px, 2vw, 30px);
       padding-bottom: clamp(16px, 2vw, 30px);
       background-color: var(--color-bg-card);
     }

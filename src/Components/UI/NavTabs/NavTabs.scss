@@ -16,7 +16,7 @@
 
     &:nth-child(2),
     &:nth-child(3) {
-      width: clamp(300px, 27vw, 517px);
+      width: clamp(300px, 26vw, 517px);
       flex: none;
 
       @media (max-width: 1270px) {
@@ -24,6 +24,7 @@
         flex: 1;
       }
     }
+    
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -33,7 +34,6 @@
     line-height: 1.25;
     color: var(--color-text-dark);
     white-space: nowrap;
-    text-decoration: none;
     background-color: var(--color-bg-tab);
     border: 1px solid var(--color-border-tab);
     border-radius: 8px;

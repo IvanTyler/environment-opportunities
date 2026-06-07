@@ -9,6 +9,7 @@
   border: none;
   padding: 0;
   cursor: pointer;
+  transition: transform var(--transition-speed);
 
   &__icon {
     width: 82px;
@@ -22,6 +23,7 @@
   }
 
   &:hover {
+    transform: scale(1.1);
     .play-button__icon--white { opacity: 0; }
     .play-button__icon--red   { opacity: 1; }
   }

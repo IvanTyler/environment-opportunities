@@ -15,8 +15,8 @@ function initApp() {
 
   main.append(Banner());
   main.append(NavTabs());
-  // main.append(AssessmentCards());
-  // main.append(Webinar());
+  main.append(AssessmentCards());
+  main.append(Webinar());
 }
 
 document.addEventListener('DOMContentLoaded', initApp);

@@ -56,6 +56,8 @@ body {
 }
 
 .main {
+  padding-top: 52px;
+  padding-bottom: 52px;
   padding-left: clamp(16px, calc(5.5vw - 5.62px), 100px);
   padding-right: clamp(16px, calc(5.5vw - 5.62px), 100px);
 }

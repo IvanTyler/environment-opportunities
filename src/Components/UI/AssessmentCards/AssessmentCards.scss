@@ -1,17 +1,23 @@
 .assessment-cards {
-  margin-top: 120px;
+  margin-top: clamp(52px, 7vw, 120px);
 
   &__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: clamp(16px, 1vw, 20px);
+    padding-left: 0;
+    padding-right: 0;
+
+    @media (max-width: 700px) {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
 .assessment-card {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 295px;
+  grid-template-columns: 1fr 40%;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "title image"
@@ -20,14 +26,25 @@
   column-gap: 22px;
   background-color: var(--color-bg-card);
   border-radius: 16px;
-  padding: 30px;
+  padding: clamp(16px, 2vw, 30px);
   overflow: hidden;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+      "icon"
+      "title"
+      "text"
+      "btn";
+  }
 
   &:hover .assessment-card__image img {
     transform: scale(1.1);
   }
 
   &--disabled {
+
     .assessment-card__title,
     .assessment-card__text {
       color: var(--color-text-disabled);
@@ -35,12 +52,26 @@
 
     .assessment-card__image {
       opacity: 0.3;
+      margin-right: -10px;
+    }
+  }
+
+  &__icon {
+    display: none;
+    grid-area: icon;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    margin-bottom: 12px;
+
+    @media (max-width: 1100px) {
+      display: block;
     }
   }
 
   &__title {
     grid-area: title;
-    font-size: clamp(20px, calc(0.52vw + 17.98px), 28px);
+    font-size: clamp(20px, 1vw, 28px);
     font-weight: 700;
     line-height: 1.2;
     color: var(--color-text-dark);
@@ -50,7 +81,7 @@
 
   &__text {
     grid-area: text;
-    font-size: clamp(16px, calc(0.26vw + 14.98px), 20px);
+    font-size: clamp(16px, 1vw, 20px);
     font-weight: 400;
     line-height: 1.25;
     color: var(--color-text-dark);
@@ -61,11 +92,18 @@
     grid-area: image;
     align-self: end;
     justify-self: end;
+    margin-bottom: -30px;
+    margin-right: -30px;
+    width: 100%;
+
+    @media (max-width: 1100px) {
+      display: none;
+    }
 
     img {
       display: block;
-      width: 263px;
-      height: 263px;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       object-position: bottom right;
       transition: transform var(--transition-speed);
@@ -77,5 +115,10 @@
     align-self: end;
     justify-self: start;
     margin-top: 32px;
+
+    @media (max-width: 1285px) {
+      justify-self: stretch;
+      ;
+    }
   }
 }

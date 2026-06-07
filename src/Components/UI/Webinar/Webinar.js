@@ -22,7 +22,6 @@ export function Webinar() {
   `;
 
   const modal = Modal();
-  section.append(modal);
 
   const playWrap = section.querySelector('#webinar-play');
   playWrap.append(PlayButton({
